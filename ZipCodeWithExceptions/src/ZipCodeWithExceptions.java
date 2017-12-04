@@ -19,16 +19,12 @@ public class ZipCodeWithExceptions {
         return zipCode;
     }
 
-    public void setZipCode (String zip) {
-        try {
+    public void setZipCode (String zip) throws ZipCodeException {
             if (zip.length() == 5 || zip.length() == 9) {
                 this.zipCode = zip;
             } else {
                 throw new ZipCodeException("Zip code must consist of 5 or 9 digits");
             }
-        } catch (ZipCodeException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main (String[] args) {
@@ -41,6 +37,8 @@ public class ZipCodeWithExceptions {
             System.out.print("Insert a zipcode: ");
             zipCode1 = new ZipCodeWithExceptions(input.nextLine());
         }
+
+        System.out.println("Rest of the code...");
 
     }
 }
