@@ -9,8 +9,7 @@ public class NumberPrinterApplication {
             taskThread.start();
 
             taskThread.join(interval);
-            taskThread.interrupt();
-            
+            taskThread.interrupt();            
         } else {
             System.out.println("Not enough arguments.");
         }
