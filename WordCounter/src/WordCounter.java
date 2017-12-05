@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Hashtable;
@@ -25,6 +24,7 @@ public class WordCounter {
                     } else {
                         words = line.split(" ");
                         for (String word : words) {
+                            word = word.toLowerCase();
                             if (hash.containsKey(word)) {
                                 counter = hash.get(word);
                                 counter++;
