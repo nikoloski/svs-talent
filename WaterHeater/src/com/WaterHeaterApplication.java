@@ -1,9 +1,9 @@
 package com;
 
 import com.acme.thermoregulator.efficientthermoregulator.EfficientThermoregulator;
-import com.acme.vendorclientadapter.ventoelectricsadapter.foracme.AcmeHeaterAdapter;
-import com.acme.vendorclientadapter.ventoelectricsadapter.foracme.AcmeThermometerAdapter;
-import com.acme.vendorclientadapter.ventoelectricsadapter.forventoelectrics.VentoelectricsThermoregulatorAdapter;
+import com.acme.acmeclientadapter.acmeventoelectricsadapter.foracme.AcmeHeaterAdapter;
+import com.acme.acmeclientadapter.acmeventoelectricsadapter.foracme.AcmeThermometerAdapter;
+import com.acme.acmeclientadapter.acmeventoelectricsadapter.forventoelectrics.VentoelectricsThermoregulatorAdapter;
 import com.ventoelectrics.powerswitch.PowerSwitch;
 import com.ventoelectrics.thermoregulator.Thermoregulator;
 import com.ventoelectrics.heater.Heater;
