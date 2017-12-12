@@ -3,10 +3,11 @@ package com.acme.thermoregulator.standardthermoregulator;
 import com.acme.thermoregulator.Heater;
 import com.acme.thermoregulator.Thermoregulator;
 import com.acme.thermoregulator.Thermometer;
+import com.ventoelectrics.powerswitch.exception.NoPowerException;
 
 import java.util.concurrent.TimeUnit;
 
-public class StandardThermoregulator implements Thermoregulator, Runnable {
+public class StandardThermoregulator implements Thermoregulator {
 
     private Heater heater;
     private Thermometer thermometer;
@@ -27,17 +28,21 @@ public class StandardThermoregulator implements Thermoregulator, Runnable {
                     return;
                 }
             }
-            int temperature = thermometer.getTemperature();
-            if (temperature > temperatureRegulation) {
-                heater.disableHeating();
-            } else {
-                heater.enableHeating();
-            }
             try {
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
-                return;
             }
+            try {
+                int temperature = thermometer.getTemperature();
+                if (temperature > temperatureRegulation) {
+                    heater.disableHeating();
+                } else {
+                    heater.enableHeating();
+                }
+            } catch (NoPowerException e) {
+                continue;
+            }
+
         }
     }
 

@@ -11,5 +11,12 @@
 
     <artifactId>acme-thermoregulator</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.seavus.multi-module-water-heater</groupId>
+            <artifactId>ventoelectrics-power-switch</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -13,10 +13,10 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ventoelectricswaterheater" />
     <orderEntry type="module" module-name="ventoelectricsheater" />
-    <orderEntry type="module" module-name="ventoelectricspowerswitch" />
     <orderEntry type="module" module-name="ventoelectricsthermometer" />
     <orderEntry type="module" module-name="ventoelectricsthermoregulator" />
     <orderEntry type="module" module-name="acmeadapter" />
     <orderEntry type="module" module-name="acmethermoregulator" />
+    <orderEntry type="module" module-name="ventoelectricspowerswitch" />
   </component>
 </module>
