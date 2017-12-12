@@ -3,6 +3,7 @@ package com.acme.thermoregulator.efficientthermoregulator;
 import com.acme.thermoregulator.Heater;
 import com.acme.thermoregulator.Thermoregulator;
 import com.acme.thermoregulator.Thermometer;
+import com.ventoelectrics.powerswitch.exception.NoPowerException;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,18 +29,18 @@ public class EfficientThermoregulator implements Thermoregulator {
                     return;
                 }
             }
-            if (Thread.interrupted()) {
-                continue;
-            }
-            int temperature = thermometer.getTemperature();
-            if (temperature > temperatureRegulation) {
-                heater.disableHeating();
-            } else {
-                heater.enableHeating();
-            }
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
+            }
+            try {
+                int temperature = thermometer.getTemperature();
+                if (temperature > temperatureRegulation) {
+                    heater.disableHeating();
+                } else {
+                    heater.enableHeating();
+                }
+            } catch (NoPowerException e) {
                 continue;
             }
         }
