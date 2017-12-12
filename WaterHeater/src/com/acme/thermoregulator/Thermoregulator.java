@@ -1,6 +1,6 @@
 package com.acme.thermoregulator;
 
-public interface Thermoregulator {
+public interface Thermoregulator extends Runnable {
 
     public void enablePower();
 

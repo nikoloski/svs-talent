@@ -6,7 +6,7 @@ import com.acme.thermoregulator.Thermometer;
 
 import java.util.concurrent.TimeUnit;
 
-public class StandardThermoregulator implements Thermoregulator, Runnable {
+public class StandardThermoregulator implements Thermoregulator {
 
     private Heater heater;
     private Thermometer thermometer;
@@ -28,6 +28,9 @@ public class StandardThermoregulator implements Thermoregulator, Runnable {
                     return;
                 }
             }
+            if (Thread.interrupted()) {
+                continue;
+            }
             int temperature = thermometer.getTemperature();
             if (temperature > temperatureRegulation) {
                 heater.disableHeating();
@@ -37,7 +40,7 @@ public class StandardThermoregulator implements Thermoregulator, Runnable {
             try {
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
-                return;
+                continue;
             }
         }
     }

@@ -4,6 +4,7 @@ import com.acme.thermoregulator.efficientthermoregulator.EfficientThermoregulato
 import com.acme.acmeclientadapter.acmeventoelectricsadapter.foracme.AcmeHeaterAdapter;
 import com.acme.acmeclientadapter.acmeventoelectricsadapter.foracme.AcmeThermometerAdapter;
 import com.acme.acmeclientadapter.acmeventoelectricsadapter.forventoelectrics.VentoelectricsThermoregulatorAdapter;
+import com.acme.thermoregulator.standardthermoregulator.StandardThermoregulator;
 import com.ventoelectrics.powerswitch.PowerSwitch;
 import com.ventoelectrics.thermoregulator.Thermoregulator;
 import com.ventoelectrics.heater.Heater;
@@ -19,25 +20,22 @@ public class WaterHeaterApplication {
         Heater heater = new Heater();
         Thermometer thermometer = new Thermometer();
 
-        /*//Standard thermoregulator
-        StandardThermoregulator standardThermoregulator = new StandardThermoregulator(
+        //Standard thermoregulator
+        /*StandardThermoregulator standardThermoregulator = new StandardThermoregulator(
                 new AcmeHeaterAdapter(heater), new AcmeThermometerAdapter(thermometer));
-        Thermoregulator thermoregulator = new VentoelectricsThermoregulatorAdapter(standardThermoregulator);
-        Thread thread = new Thread(standardThermoregulator);*/
+        Thermoregulator thermoregulator = new VentoelectricsThermoregulatorAdapter(standardThermoregulator);*/
 
         //Efficient thermoregulator
         EfficientThermoregulator efficientThermoregulator = new EfficientThermoregulator(
                 new AcmeHeaterAdapter(heater), new AcmeThermometerAdapter(thermometer));
         Thermoregulator thermoregulator = new VentoelectricsThermoregulatorAdapter(efficientThermoregulator);
-        Thread thread = new Thread(efficientThermoregulator);
 
         WaterHeater waterHeater = new WaterHeater(powerSwitch, heater, thermometer, thermoregulator);
 
-        simulateRun(waterHeater, thread);
+        simulateRun(waterHeater);
     }
 
-    private static void simulateRun(WaterHeater waterHeater, Thread thread) {
-        thread.start();
+    private static void simulateRun(WaterHeater waterHeater) {
         waterHeater.getThermoregulator().setTemperature(20);
         waterHeater.getPowerSwitch().turnOn();
 
@@ -55,6 +53,5 @@ public class WaterHeaterApplication {
         }
 
         waterHeater.getPowerSwitch().turnOff();
-        thread.interrupt();
     }
 }
