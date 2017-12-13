@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="acmeadapter" />
+        <module name="acmethermoregulator" />
+        <module name="application" />
+        <module name="ventoelectricsheater" />
+        <module name="ventoelectricspowerswitch" />
+        <module name="ventoelectricsthermometer" />
+        <module name="ventoelectricsthermoregulator" />
+        <module name="ventoelectricswaterheater" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="acmeadapter" target="1.9" />
+      <module name="acmethermoregulator" target="1.9" />
+      <module name="application" target="1.9" />
+      <module name="SpringWaterHeater" target="1.9" />
+      <module name="ventoelectricsheater" target="1.9" />
+      <module name="ventoelectricspowerswitch" target="1.9" />
+      <module name="ventoelectricsthermometer" target="1.9" />
+      <module name="ventoelectricsthermoregulator" target="1.9" />
+      <module name="ventoelectricswaterheater" target="1.9" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
