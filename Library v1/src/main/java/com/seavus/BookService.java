@@ -16,21 +16,22 @@ public class BookService {
     }
 
     public void init() {
+        displayMenu();
         Scanner input = new Scanner(System.in);
         boolean flag = true;
 
         while(flag) {
             System.out.println("Choose action:");
-            String number = input.nextLine();
-            switch (number) {
-                case "register":
+            String action = input.nextLine();
+            switch (action) {
+                case "rg":
                     System.out.println("Insert isbn:");
                     String isbn = input.nextLine();
                     System.out.println("Insert title:");
                     String title = input.nextLine();
                     bookRepository.save(new Book(isbn, title));
                     break;
-                case "list":
+                case "ls":
                     Iterable<Book> books = bookRepository.findAll();
                     for (Book book1 : books) {
                         System.out.println(book1.toString());
@@ -45,5 +46,11 @@ public class BookService {
                     break;
             }
         }
+    }
+
+    public void displayMenu() {
+        System.out.println("Welcome to Darko Nikoloski's Library Application!");
+        System.out.println("When asked for action choose between the following:");
+        System.out.println("1. rg - to register a book;\n2. ls - to list all books;\n3. exit - to stop the application.");
     }
 }
