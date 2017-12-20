@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Library v3.iml" filepath="$PROJECT_DIR$/Library v3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libentity/libentity.iml" filepath="$PROJECT_DIR$/libentity/libentity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/librestcontroller/librestcontroller.iml" filepath="$PROJECT_DIR$/librestcontroller/librestcontroller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libservice/libservice.iml" filepath="$PROJECT_DIR$/libservice/libservice.iml" />
+    </modules>
+  </component>
+</project>
